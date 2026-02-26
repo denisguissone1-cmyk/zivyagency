@@ -771,55 +771,47 @@
     </footer>
 
     <!-- Flutuante CTA WhatsApp -->
-    <a href="https://wa.me/message/VTKU5THCYS54J1" target="_blank" id="float-cta"
-        class="fixed bottom-7 right-7 z-50 group flex items-center gap-3 rounded-full transition-all duration-500 ease-in-out"
-        style="width:72px; padding: 0;" aria-label="Fale conosco no WhatsApp">
-
+    <div id="float-cta" class="fixed bottom-7 right-7 z-50 group">
         <!-- Ondas de pulso suaves -->
-        <span class="absolute right-0 w-[72px] h-[72px] rounded-full bg-brand-cyan/15 pointer-events-none"
+        <span class="absolute inset-0 rounded-full bg-brand-cyan/15 pointer-events-none"
             style="animation: slow-ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;"></span>
-        <span class="absolute right-0 w-[56px] h-[56px] rounded-full bg-brand-purple/20 pointer-events-none"
+        <span class="absolute inset-1.5 rounded-full bg-brand-purple/20 pointer-events-none"
             style="animation: slow-ping 3s cubic-bezier(0, 0, 0.2, 1) infinite; animation-delay: 1s;"></span>
 
-        <!-- Label oculta que aparece ao hover -->
+        <!-- Label que aparece ao hover (posicionada à esquerda do botão) -->
         <span id="float-cta-label"
-            class="font-bold text-sm text-white whitespace-nowrap bg-gradient-to-r from-brand-purple to-brand-cyan/80 px-4 py-2 rounded-full shadow-lg opacity-0 scale-95 translate-x-4 pointer-events-none transition-all duration-500 ml-2"
-            style="transition-property: opacity, transform;">
+            class="absolute right-full mr-3 top-1/2 -translate-y-1/2 font-bold text-sm text-white whitespace-nowrap px-5 py-2.5 rounded-full shadow-lg opacity-0 scale-95 pointer-events-none transition-all duration-500"
+            style="background: linear-gradient(135deg, #5B2AAE, #2DD4FF);">
             Fale no WhatsApp
         </span>
 
-        <!-- Botão circular principal (sólido) -->
-        <div id="float-cta-btn"
-            style="background: linear-gradient(135deg, #1a0a3e, #5B2AAE) !important; box-shadow: 0 0 24px rgba(45,212,255,0.35);"
-            class="relative ml-auto flex-shrink-0 w-[72px] h-[72px] rounded-full flex items-center justify-center
-                    text-brand-cyan
-                    border-2 border-brand-cyan/60
-                    group-hover:text-white
-                    group-hover:border-brand-purple/40
-                    group-hover:-translate-y-1 group-hover:scale-105
+        <!-- Botão circular sólido -->
+        <a href="https://wa.me/message/VTKU5THCYS54J1" target="_blank" id="float-cta-btn"
+            style="background: linear-gradient(135deg, #1a0a3e, #5B2AAE); box-shadow: 0 0 24px rgba(45,212,255,0.35);"
+            class="relative flex items-center justify-center w-[72px] h-[72px] rounded-full
+                    text-brand-cyan border-2 border-brand-cyan/60
+                    hover:text-white hover:border-brand-purple/40
+                    hover:-translate-y-1 hover:scale-105
                     transition-all duration-500">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="transition-transform duration-500 group-hover:rotate-12 drop-shadow">
+                class="transition-transform duration-500 group-hover:rotate-12 drop-shadow-lg">
                 <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
             </svg>
-        </div>
-    </a>
+        </a>
+    </div>
 
     <script>
-        // Expande o botão para mostrar o label ao hover
+        // Mostra/esconde label ao hover
         const floatCta = document.getElementById('float-cta');
         const floatLabel = document.getElementById('float-cta-label');
         floatCta.addEventListener('mouseenter', () => {
-            floatCta.style.width = 'auto';
-            floatCta.style.padding = '0 0 0 0';
             floatLabel.style.opacity = '1';
-            floatLabel.style.transform = 'scale(1) translateX(0)';
+            floatLabel.style.transform = 'translateY(-50%) scale(1)';
         });
         floatCta.addEventListener('mouseleave', () => {
-            floatCta.style.width = '72px';
             floatLabel.style.opacity = '0';
-            floatLabel.style.transform = 'scale(0.95) translateX(1rem)';
+            floatLabel.style.transform = 'translateY(-50%) scale(0.95)';
         });
     </script>
 </body>
