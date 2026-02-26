@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-purple: #5B2AAE;
+  --color-brand-dark: #0B0B10;
+  --color-brand-cyan: #2DD4FF;
+  --color-brand-gold: #F5C542;
+  --color-brand-light: #FFFFFF;
+  --color-gray-300: #C9C9D4;
+  --color-gray-400: #B0B0C0;
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-dark);
+    color: #ffffff;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(91, 42, 174, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(91, 42, 174, 0.3);
+  }
+
+  .glow-button {
+    box-shadow: 0 0 20px rgba(45, 212, 255, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .glow-button:hover {
+    box-shadow: 0 0 30px rgba(45, 212, 255, 0.7);
+    transform: translateY(-2px);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(to right, #2DD4FF, #5B2AAE);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@keyframes slow-ping {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+#float-cta-btn {
+  background: linear-gradient(135deg, #0B0B10 0%, #3a1a6e 100%) !important;
+  box-shadow: 0 0 24px rgba(45, 212, 255, 0.35);
+}
+
+#float-cta:hover #float-cta-btn,
+.group:hover #float-cta-btn {
+  background: linear-gradient(135deg, #2DD4FF 0%, #5B2AAE 100%) !important;
+  box-shadow: 0 0 45px rgba(91, 42, 174, 0.8);
+}
